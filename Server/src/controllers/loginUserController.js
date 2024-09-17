@@ -1,7 +1,7 @@
 const loginUserController = (email, password) => {
-    const emailTest = "admin@admin.com";
+    const emailTest = "messi@word.com";
     const passwordTest = "admin123";
-    if ( email === emailTest && password === passwordTest ) {
+    if ( email == emailTest && password == passwordTest ) {
         return {
             email,
             access: true
