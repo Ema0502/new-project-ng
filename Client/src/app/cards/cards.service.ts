@@ -7,4 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class CardsService {
 
   constructor( private http: HttpClient) { }
+  getProductsApi = () => {
+    return this.http.get("https://fakestoreapi.com/products/");
+  }
 }
