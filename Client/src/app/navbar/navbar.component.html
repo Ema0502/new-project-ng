@@ -3,7 +3,17 @@
     <div class="collapse navbar-collapse justify-content-evenly">
         <a class="nav-link" routerLink="home">Home</a>
         <input id="search" name="search" type="search">
-        <a class="nav-link" routerLink="login">Login</a>
+    
+        <ng-container *ngIf="user; else loginLink">
+            <div class="d-flex align-items-center">
+              <span class="nav-link">Welcome, {{ user.email }}</span>
+              <a class="nav-link ms-2" (click)="logOut()">Log Out</a>
+            </div>
+        </ng-container>
+
+        <ng-template #loginLink>
+            <a class="nav-link" routerLink="login">Login</a>
+        </ng-template>
     </div>
   </nav>
   
