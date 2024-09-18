@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
       try {
         return JSON.parse(userJson) as navBarUser;
       } catch (error) {
-        console.error('Error parsing user from localStorage', error);
+        console.error(error);
         return null;
       }
     }
@@ -31,6 +31,6 @@ export class NavbarComponent implements OnInit {
   logOut(): void {
     localStorage.removeItem("user");
     this.user = null;
-    this.router.navigate(['/home']);
+    this.router.navigate(["/"]);
   }
 }
