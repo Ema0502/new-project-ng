@@ -7,9 +7,7 @@ const loginUserController = (email, password) => {
             access: true
         }
     }
-    return {
-        error: "Fail! the information is incorrect"
-    };
+    throw new Error("Fail! the information is incorrect");
 }
 
 module.exports = {

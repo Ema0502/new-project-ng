@@ -21,13 +21,13 @@ export class AuthComponent {
 
   onSubmit() {
     if (this.form.valid) {
-    const { email, password } = this.form.value;
-    this.authService.signup(email, password).subscribe((response: AuthResponse) => {
-      if (response.access) {
-        localStorage.setItem("user", JSON.stringify(response));
-        return this.router.navigate(["/home"]);
-      }
-      return;
+      const { email, password } = this.form.value;
+      this.authService.signup(email, password).subscribe((response: AuthResponse) => {
+        if (response.access) {
+          localStorage.setItem("user", JSON.stringify(response));
+          this.authService.setUserLogged(true);
+          this.router.navigate(["/home"]);
+        }
       },
       (error) => {
         console.error('Signup failed', error);

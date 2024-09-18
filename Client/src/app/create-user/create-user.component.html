@@ -1,4 +1,4 @@
-<form #createUserForm="ngForm" (ngSubmit)="onSubmit(createUserForm)" class="container mt-5">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <div class="card p-4 shadow-sm">
@@ -6,30 +6,81 @@
 
                 <div class="mb-3">
                     <label for="userName" class="form-label">User Name:</label>
-                    <input type="userName" name="userName" id="userName" ngModel required
-                           class="form-control">
-                </div>
+                    <input type="userName" name="userName" id="userName" class="form-control" ngModel required >
 
-                <div class="mb-3">
-                    <label for="birth" class="form-label">Birthday:</label>
-                    <input type="birth" name="birth" id="birth" ngModel required
-                           class="form-control">
+                    <div *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid" class="text-danger">
+                        <small *ngIf="form.get('userName')?.errors?.['required']">User Name is required.</small>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name:</label>
+                        <input type="firstName" name="firstName" id="firstName" class="form-control" ngModel required >
+
+                        <div *ngIf="form.get('firstName')?.touched && form.get('firstName')?.invalid" class="text-danger">
+                            <small *ngIf="form.get('firstName')?.errors?.['required']">First Name is required.</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name:</label>
+                        <input type="lastName" name="lastName" id="lastName" class="form-control" ngModel required >
+
+                        <div *ngIf="form.get('lastName')?.touched && form.get('lastName')?.invalid" class="text-danger">
+                            <small *ngIf="form.get('lastName')?.errors?.['required']">Last Name is required.</small>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="mb-3">
+                        <label for="birth" class="form-label">Birthday:</label>
+                    <input type="birth" name="birth" id="birth" class="form-control" ngModel required >
+
+                    <div *ngIf="form.get('birth')?.touched && form.get('birth')?.invalid" class="text-danger">
+                            <small *ngIf="form.get('birth')?.errors?.['required']">Birthday is required.</small>
+                        </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="email" name="email" id="email" ngModel required
-                           class="form-control">
+                    <input 
+                      type="email" 
+                      name="email" 
+                      id="email" 
+                      class="form-control" 
+                      formControlName="email"
+                      ngModel
+                      required 
+                      [ngClass]="{ 'is-invalid': form.get('email')?.invalid && form.get('email')?.touched }">
+
+                    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="text-danger">
+                        <small *ngIf="form.get('email')?.errors?.['required']">Email is required.</small>
+                        <small *ngIf="form.get('email')?.errors?.['email']">Invalid email format.</small>
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
-                    <input type="password" name="password" id="password" ngModel required
-                           class="form-control">
+                    <input 
+                      type="password" 
+                      name="password" 
+                      id="password" 
+                      class="form-control" 
+                      formControlName="password"
+                      ngModel
+                      required 
+                      [ngClass]="{ 'is-invalid': form.get('password')?.invalid && form.get('password')?.touched }">
+
+                    <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="text-danger">
+                        <small *ngIf="form.get('password')?.errors?.['required']">Password is required.</small>
+                        <small *ngIf="form.get('password')?.errors?.['minlength']">The password must be at least 6 characters.</small>
+                        <small *ngIf="form.get('password')?.errors?.['maxlength']">The password must not exceed 20 characters.</small>
+                    </div>
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button class="btn btn-primary" type="submit" [disabled]="!createUserForm.valid">Create</button>
+                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create User</button>
+                    <button class="btn btn-danger" type="submit" [disabled]="form.invalid">Cancel</button>
                 </div>
             </div>
         </div>
