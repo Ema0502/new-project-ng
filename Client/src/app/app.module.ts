@@ -18,6 +18,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateUserService } from './create-user/create-user.service';
 import { DetailProductComponent } from './cards/card/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardsComponent,
     CardComponent,
     CreateUserComponent,
+    CreateProductComponent,
     DetailProductComponent
   ],
   imports: [

@@ -4,7 +4,7 @@ const loginUserHandler = (req, res) => {
     try {
         const { email, password } = req.body;
         if ( !email || !password) {
-            return res.status(404).json({error: "fail load"});
+            throw new Error(res.status(404).json({error: "fail load"}));
         }
         const resultLogin = loginUserController(email, password);
         return res.status(200).json(resultLogin);
