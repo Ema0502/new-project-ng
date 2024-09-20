@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductResponse } from './detail-product/product-response.model';
+
 
 @Component({
   selector: 'app-card',
@@ -7,10 +9,10 @@ import { Router } from '@angular/router';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input() product: any;
+  @Input() product!: ProductResponse;
   constructor (private router: Router) { }
 
   getPorductDetail = () => {
-    this.router.navigate([`home/product/${this.product.id}`]);
+    this.router.navigate([`home/products/${this.product.id}`]);
   }
 }

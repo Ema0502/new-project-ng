@@ -2,7 +2,6 @@
     <a class="nav-link" routerLink="../"> ⭠ Back</a>
     <div class="collapse navbar-collapse justify-content-evenly">
         <a class="nav-link" routerLink="home">Home</a>
-        <input id="search" name="search" type="search">
     
         <ng-container *ngIf="user; else loginLink">
             <div class="d-flex align-items-center">
@@ -12,7 +11,8 @@
         </ng-container>
 
         <ng-template #loginLink>
-            <a class="nav-link" routerLink="login">Login</a>
+            <a class="nav-link" routerLink="login">Sign in</a>
+            <a class="nav-link" routerLink="createUser">Sign up</a>
         </ng-template>
     </div>
   </nav>
