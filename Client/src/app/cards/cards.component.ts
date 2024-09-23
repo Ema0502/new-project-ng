@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CardsService } from './cards.service';
+import { ProductResponse } from './card/detail-product/product-response.model';
 
 @Component({
   selector: 'app-cards',
@@ -7,7 +8,7 @@ import { CardsService } from './cards.service';
   styleUrl: './cards.component.css'
 })
 export class CardsComponent {
-  products: Object[] = [];
+  products: ProductResponse[] = [];
 
   constructor (private cardsService: CardsService) {
     this.renderAllCards();
@@ -15,7 +16,7 @@ export class CardsComponent {
 
   renderAllCards = () => {
     this.cardsService.getProductsApi().subscribe((response: any) => {
-      response.forEach((element: Object) => {
+      response.forEach((element: ProductResponse) => {
         return this.products.push(element)
       });
     })

@@ -12,7 +12,7 @@ export class CardComponent {
   @Input() product!: ProductResponse;
   constructor (private router: Router) { }
 
-  getPorductDetail = () => {
+  getProductDetail  = () => {
     this.router.navigate([`home/products/${this.product.id}`]);
   }
 }

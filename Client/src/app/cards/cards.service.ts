@@ -8,6 +8,6 @@ export class CardsService {
 
   constructor( private http: HttpClient) { }
   getProductsApi = () => {
-    return this.http.get("https://fakestoreapi.com/products/");
+    return this.http.get("http://localhost:3000/products");
   }
 }
