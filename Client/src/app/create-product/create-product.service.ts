@@ -19,6 +19,6 @@ export class CreateProductService {
       price,
       conditionProd
     }
-    return this.http.post<createProductResp>("http://localhost:3000/createUser", product);
+    return this.http.post<createProductResp>("http://localhost:3000/createProduct", product);
   }
 }

@@ -1,4 +1,5 @@
-export interface createProductResp {
+export interface updateProductResp {
+    id: number;
     name: string;
     feature: string;
     publicationDate: Date;

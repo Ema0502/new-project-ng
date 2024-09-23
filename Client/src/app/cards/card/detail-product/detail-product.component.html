@@ -7,6 +7,8 @@
             <p class="card-text">Description: {{ product.feature }}</p>
             <p class="card-text">Condition Product: {{ product.conditionProd }}</p>
             <h3 class="card-text">Price: ${{ product.price }}</h3>
+            <button class="btn btn-primary" routerLink="update" (click)="idProduct()">Update</button>
+            <button class="btn btn-danger" (click)="deleteProduct()" routerLink="">Delete</button>
         </div>
     </div>
 </div>

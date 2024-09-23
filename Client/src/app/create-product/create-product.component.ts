@@ -18,6 +18,7 @@ export class CreateProductComponent {
       feature: new FormControl('', [Validators.required]),
       image: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required]),
+      conditionProd: new FormControl(''),
     });
   }
 

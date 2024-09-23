@@ -29,4 +29,19 @@ export class DetailProductComponent implements OnInit {
       }
     });
   }
+
+  idProduct(): void {
+    localStorage.setItem("idProduct", this.id);
+  }
+
+  deleteProduct(): void {
+    this.detailProductService.deleteProduct(Number(this.id)).subscribe({
+      next: (response: ProductResponse) => {
+        this.product = response;
+      },
+      error: (error) => {
+        console.error("Product error: ", error);
+      }
+    });
+  }
 }

@@ -2,7 +2,8 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <div class="card p-4 shadow-sm">
-                <h3 class="card-title text-center mb-4">Create new Product</h3>
+                <h3 class="card-title text-center mb-4">Update Product</h3>
+                <h4 class="">Update only the fields you want to change.</h4>
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
@@ -12,12 +13,7 @@
                       id="name" 
                       class="form-control" 
                       formControlName="name"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('name')?.invalid && form.get('name')?.touched }">
-
-                    <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('name')?.errors?.['required']">Name is required.</small>
-                    </div>
+                      >
                 
                     <div class="mb-3">
                         <label for="feature" class="form-label">Features:</label>
@@ -27,12 +23,7 @@
                           id="feature" 
                           class="form-control" 
                           formControlName="feature"
-                          required 
-                          [ngClass]="{ 'is-invalid': form.get('feature')?.invalid && form.get('feature')?.touched }">
-
-                        <div *ngIf="form.get('feature')?.touched && form.get('feature')?.invalid" class="text-danger">
-                            <small *ngIf="form.get('feature')?.errors?.['required']">Features is required.</small>
-                        </div>
+                          >
                     </div>
                     
                     <div class="mb-3">
@@ -43,12 +34,7 @@
                           id="image" 
                           class="form-control" 
                           formControlName="image"
-                          required 
-                          [ngClass]="{ 'is-invalid': form.get('image')?.invalid && form.get('image')?.touched }">
-
-                        <div *ngIf="form.get('image')?.touched && form.get('image')?.invalid" class="text-danger">
-                            <small *ngIf="form.get('image')?.errors?.['required']">Image is required.</small>
-                        </div>
+                          >
                     </div>
                 </div>
                     
@@ -61,12 +47,7 @@
                       class="form-control" 
                       formControlName="price"
                       placeholder="USD"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('price')?.invalid && form.get('price')?.touched }">
-
-                    <div *ngIf="form.get('price')?.touched && form.get('price')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('price')?.errors?.['required']">Price is required.</small>
-                    </div>
+                      >
                 </div>
 
                 <div class="mb-3">
@@ -96,7 +77,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create Product</button>
+                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Update Product</button>
                     <button class="btn btn-danger" routerLink="../home">Cancel</button>
                 </div>
             </div>

@@ -13,4 +13,8 @@ export class DetailProductService {
   getProductById = (id: number): Observable<ProductResponse> => {
     return this.http.get<ProductResponse>(`http://localhost:3000/products/${id}`);
   }
+
+  deleteProduct = (id: number): Observable<ProductResponse> => {
+    return this.http.delete<ProductResponse>(`http://localhost:3000/products/${id}`);
+  }
 }
