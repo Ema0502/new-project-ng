@@ -4,7 +4,7 @@
         <a class="nav-link" routerLink="home">Home</a>
     
         <ng-container *ngIf="user; else loginLink">
-            <button class="nav-link" routerLink="createProduct">New Product</button>
+            <button class="nav-link" routerLink="home/createProduct">New Product</button>
             <div class="d-flex align-items-center">
               <span class="nav-link">Welcome, {{ user.email }}</span>
               <button class="nav-link ms-3" (click)="logOut()">Log Out</button>
