@@ -104,24 +104,26 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
+                <div class="d-flex">
                     <label class="form-label">Role:</label>
-                    <div>
+                    <div class="form-check">
+                        <input 
+                        type="radio"
+                        id="user"
+                        formControlName="role" 
+                        value="user" 
+                        required
+                        >
                         <label class="form-label">User:</label>
-                        <input 
-                          type="radio" 
-                          formControlName="role" 
-                          value="user" 
-                          required
-                          >
                             
-                        <label class="form-label">Admin</label>
                         <input 
-                          type="radio" 
-                          formControlName="role" 
-                          value="admin" 
-                          required
-                          >
+                        type="radio"
+                        id="admin"
+                        formControlName="role" 
+                        value="admin" 
+                        required
+                        >
+                        <label class="form-label">Admin</label>
                     </div>
                     
                     <div *ngIf="form.get('role')?.invalid && form.get('role')?.touched" class="text-danger">

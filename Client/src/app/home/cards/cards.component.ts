@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardsService } from './cards.service';
-import { ProductResponse } from './card/detail-product/product-response.model';
+import { ProductResponse } from '../../product/detail-product/product-response.model';
 
 @Component({
   selector: 'app-cards',

@@ -20,6 +20,7 @@ export class CreateUserService {
       password,
       role
     }
+    console.log(user)
     return this.http.post<createResponse>("http://localhost:3000/createUser", user);
   }
 }

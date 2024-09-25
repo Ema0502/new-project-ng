@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { createResponse } from './create-response.model';
 import { CreateUserService } from './create-user.service';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-create-user',

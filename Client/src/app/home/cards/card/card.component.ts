@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductResponse } from './detail-product/product-response.model';
+import { ProductResponse } from '../../../product/detail-product/product-response.model';
 
 
 @Component({

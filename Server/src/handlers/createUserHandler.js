@@ -2,7 +2,7 @@ const { createUserController } = require("../controllers/createUserController");
 
 const createUserHandler = (req, res) => {
     try {
-        const { userName, firstName, lastName, birth, email, password, rol } = req.body;
+        const { userName, firstName, lastName, birth, email, password, role } = req.body;
         const newUser = { 
             userName, 
             firstName, 
