@@ -2,7 +2,8 @@ const createUserController = (newUser) => {
     if ( newUser.email && newUser.password ) {
         return {
             email: newUser.email,
-            access: true
+            access: true,
+            role: newUser.role
         }
     }
     throw new Error("Fail! the information is incorrect");

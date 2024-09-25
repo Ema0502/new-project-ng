@@ -20,15 +20,16 @@ export class CreateUserComponent {
       lastName: new FormControl('', [Validators.required]),
       birth: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required,  Validators.minLength(6), Validators.maxLength(20)])
+      password: new FormControl('', [Validators.required,  Validators.minLength(6), Validators.maxLength(20)]),
+      role: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit = () => {
     if (this.form.valid) {
-      const { userName, firstName, lastName, birth, email, password } = this.form.value;
+      const { userName, firstName, lastName, birth, email, password, role } = this.form.value;
 
-    this.createUserService.createUser(userName, firstName, lastName, birth, email, password).subscribe((response: createResponse) => {
+    this.createUserService.createUser(userName, firstName, lastName, birth, email, password, role).subscribe((response: createResponse) => {
       if (response.access) {
         localStorage.setItem("user", JSON.stringify(response));
         this.authService.setUserLogged(true);

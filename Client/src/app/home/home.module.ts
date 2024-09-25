@@ -6,7 +6,7 @@ import { CardComponent } from '../cards/card/card.component';
 import { CreateProductComponent } from '../create-product/create-product.component';
 import { DetailProductComponent } from '../cards/card/detail-product/detail-product.component';
 import { UpdateProductComponent } from '../update-product/update-product.component';
-import { routes } from '../app.routes';
+import { HomeRutesModule, homeRoutes } from './home.routes';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,15 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    HomeComponent,
-    CardsComponent,
-    CardComponent,
-    CreateProductComponent,
-    DetailProductComponent,
-    UpdateProductComponent
+    RouterModule.forChild(homeRoutes),
+    HomeRutesModule
   ]
 })
 export class HomeModule { }

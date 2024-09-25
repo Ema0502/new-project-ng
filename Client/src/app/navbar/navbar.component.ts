@@ -37,6 +37,10 @@ export class NavbarComponent implements OnInit {
     return null;
   }
 
+  isAdmin(): boolean {
+    return this.user?.role === 'admin';
+  }
+
   logOut(): void {
     localStorage.removeItem("user");
     this.authService.setUserLogged(false);

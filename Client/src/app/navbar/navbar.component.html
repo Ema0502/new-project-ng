@@ -5,6 +5,8 @@
     
         <ng-container *ngIf="user; else loginLink">
             <button class="nav-link" routerLink="home/createProduct">New Product</button>
+            <!-- <button *ngIf="isAdmin()" class="nav-link" routerLink="home/createUser">Create User</button> -->
+            <button appShowForUser="admin" class="nav-link" routerLink="home/createUser">Create User</button>
             <div class="d-flex align-items-center">
               <span class="nav-link">Welcome, {{ user.email }}</span>
               <button class="nav-link ms-3" (click)="logOut()">Log Out</button>

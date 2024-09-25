@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductService } from './update-product/update-product.service';
 import { HomeModule } from './home/home.module';
 import { HomeRutesModule } from './home/home.routes';
+import { ShowForUserDirective } from './navbar/show-for-user.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HomeRutesModule } from './home/home.routes';
     LandingPageComponent,
     NavbarComponent,
     CreateUserComponent,
+    ShowForUserDirective
   ],
   imports: [
     BrowserModule,

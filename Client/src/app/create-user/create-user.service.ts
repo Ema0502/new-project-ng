@@ -10,14 +10,15 @@ export class CreateUserService {
   
   constructor(private http: HttpClient) { }
 
-  createUser = (userName: string,firstName: string, lastName: string, birth: Date, email: string, password: string): Observable<createResponse> => {
+  createUser = (userName: string,firstName: string, lastName: string, birth: Date, email: string, password: string, role: string): Observable<createResponse> => {
     const user = {
       userName,
       firstName,
       lastName,
       birth,
       email,
-      password
+      password,
+      role
     }
     return this.http.post<createResponse>("http://localhost:3000/createUser", user);
   }
