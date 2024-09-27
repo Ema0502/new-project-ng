@@ -10,4 +10,8 @@ export class CardsService {
   getProductsApi = () => {
     return this.http.get("http://localhost:3000/products");
   }
+
+  getProductsByNameApi = (name: string) => {
+    return this.http.get(`http://localhost:3000/products?name=${name}`);
+  }
 }

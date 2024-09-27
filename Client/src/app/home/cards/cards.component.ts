@@ -17,7 +17,15 @@ export class CardsComponent {
   renderAllCards = () => {
     this.cardsService.getProductsApi().subscribe((response: any) => {
       response.forEach((element: ProductResponse) => {
-        return this.products.push(element)
+        return this.products.push(element);
+      });
+    })
+  }
+
+  renderCardsByName = (name: string) => {
+    this.cardsService.getProductsByNameApi(name).subscribe((response: any) => {
+      response.forEach((element: ProductResponse) => {
+        return this.products.push(element);
       });
     })
   }

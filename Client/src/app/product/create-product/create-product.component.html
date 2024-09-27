@@ -6,14 +6,11 @@
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
-                    <input 
-                      type="text" 
-                      name="name" 
-                      id="name" 
+                    <app-custom-input
                       class="form-control" 
                       formControlName="name"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('name')?.invalid && form.get('name')?.touched }">
+                      [ngClass]="{ 'is-invalid': form.get('name')?.invalid && form.get('name')?.touched }"
+                      ></app-custom-input>
 
                     <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-danger">
                         <small *ngIf="form.get('name')?.errors?.['required']">Name is required.</small>

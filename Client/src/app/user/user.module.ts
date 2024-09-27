@@ -7,15 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { userRoutes, UserRutesModule } from './user.routes';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateUserService } from './create-user/create-user.service';
-import { CustomInputComponent } from '../shared/CustomInput/custom-input.component';
 
 
 
 @NgModule({
   declarations: [
-    CreateUserComponent,
-    CustomInputComponent
-
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
