@@ -16,12 +16,16 @@ import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { UserRutesModule } from './user/user.routes';
 import { ProductRutesModule } from './product/product.routes';
+import { CustomInputModule } from './shared/custom-input.module';
+import { CustomInputRutesModule } from './shared/custom-input.routes';
+import { SearchBarComponent } from './navbar/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,10 @@ import { ProductRutesModule } from './product/product.routes';
     UserModule,
     UserRutesModule,
     ProductModule,
-    ProductRutesModule
+    ProductRutesModule,
+    CustomInputModule,
+    CustomInputRutesModule
+    
   ],
   providers: [
     AuthService,

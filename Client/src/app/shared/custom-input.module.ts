@@ -4,29 +4,27 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { userRoutes, UserRutesModule } from './user.routes';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { CreateUserService } from './create-user/create-user.service';
 import { CustomInputComponent } from '../shared/CustomInput/custom-input.component';
+import { inputRoutes } from './custom-input.routes';
 
 
 
 @NgModule({
   declarations: [
-    CreateUserComponent,
     CustomInputComponent
-
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forChild(userRoutes),
-    UserRutesModule
+    RouterModule.forChild(inputRoutes),
   ],
   providers: [
-    CreateUserService,
+
+  ],
+  exports: [
+    CustomInputComponent
   ]
 })
-export class UserModule { }
+export class CustomInputModule { }

@@ -13,6 +13,7 @@ import { UserModule } from '../user/user.module';
 import { ProductModule } from '../product/product.module';
 import { UserRutesModule } from '../user/user.routes';
 import { ProductRutesModule } from '../product/product.routes';
+import { CustomInputComponent } from '../shared/CustomInput/custom-input.component';
 
 @NgModule({
   declarations: [

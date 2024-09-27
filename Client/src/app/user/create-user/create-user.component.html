@@ -1,141 +1,83 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card p-4 shadow-sm">
-                <h3 class="card-title text-center mb-4">Create new User</h3>
+  <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+          <div class="card p-4 shadow-sm">
+              <h3 class="card-title text-center mb-4">Create new User</h3>
 
-                <div class="mb-3">
-                    <label for="userName" class="form-label">User Name:</label>
-                    <input 
-                      type="userName" 
-                      name="userName" 
-                      id="userName" 
-                      class="form-control" 
-                      formControlName="userName"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('userName')?.invalid && form.get('userName')?.touched }">
+              <app-custom-input
+                  label="User Name"
+                  formControlName="userName"
+                  [isRequired]="true"
+                  type="text">
+              </app-custom-input>
 
-                    <div *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('userName')?.errors?.['required']">User Name is required.</small>
-                    </div>
-                </div>
-                <div>
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name:</label>
-                        <input 
-                          type="firstName" 
-                          name="firstName" 
-                          id="firstName" 
-                          class="form-control" 
-                          formControlName="firstName"
-                          required 
-                          [ngClass]="{ 'is-invalid': form.get('firstName')?.invalid && form.get('firstName')?.touched }">
+              <app-custom-input
+                  label="First Name"
+                  formControlName="firstName"
+                  [isRequired]="true"
+                  type="text">
+              </app-custom-input>
 
-                        <div *ngIf="form.get('firstName')?.touched && form.get('firstName')?.invalid" class="text-danger">
-                            <small *ngIf="form.get('firstName')?.errors?.['required']">First Name is required.</small>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name:</label>
-                        <input 
-                          type="lastName" 
-                          name="lastName" 
-                          id="lastName" 
-                          class="form-control" 
-                          formControlName="lastName"
-                          required 
-                          [ngClass]="{ 'is-invalid': form.get('lastName')?.invalid && form.get('lastName')?.touched }">
+              <app-custom-input
+                  label="Last Name"
+                  formControlName="lastName"
+                  [isRequired]="true"
+                  type="text">
+              </app-custom-input>
 
-                        <div *ngIf="form.get('lastName')?.touched && form.get('lastName')?.invalid" class="text-danger">
-                            <small *ngIf="form.get('lastName')?.errors?.['required']">Last Name is required.</small>
-                        </div>
-                    </div>
-                </div>
-                    
-                <div class="mb-3">
-                    <label for="birth" class="form-label">Birthday:</label>
-                    <input 
-                      type="date" 
-                      name="birth" 
-                      id="birth" 
-                      class="form-control" 
-                      formControlName="birth"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('birth')?.invalid && form.get('birth')?.touched }">
+              <app-custom-input
+                  label="Birthday"
+                  formControlName="birth"
+                  [isRequired]="true"
+                  type="date">
+              </app-custom-input>
 
-                    <div *ngIf="form.get('birth')?.touched && form.get('birth')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('birth')?.errors?.['required']">Birthday is required.</small>
-                    </div>
-                </div>
+              <app-custom-input
+                  label="Email"
+                  formControlName="email"
+                  [isRequired]="true"
+                  type="email">
+              </app-custom-input>
 
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input 
-                      type="email" 
-                      name="email" 
-                      id="email" 
-                      class="form-control" 
-                      formControlName="email"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('email')?.invalid && form.get('email')?.touched }">
+              <app-custom-input
+                  label="Password"
+                  formControlName="password"
+                  [isRequired]="true"
+                  type="password">
+              </app-custom-input>
 
-                    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('email')?.errors?.['required']">Email is required.</small>
-                        <small *ngIf="form.get('email')?.errors?.['email']">Invalid email format.</small>
-                    </div>
-                </div>
+              <div class="d-flex">
+                  <label class="form-label">Role:</label>
+                  <div class="form-check">
+                      <input 
+                          type="radio"
+                          id="user"
+                          formControlName="role" 
+                          value="user" 
+                          required
+                      >
+                      <label class="form-label">User:</label>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <input 
-                      type="password" 
-                      name="password" 
-                      id="password" 
-                      class="form-control" 
-                      formControlName="password"
-                      required 
-                      [ngClass]="{ 'is-invalid': form.get('password')?.invalid && form.get('password')?.touched }">
+                      <input 
+                          type="radio"
+                          id="admin"
+                          formControlName="role" 
+                          value="admin" 
+                          required
+                      >
+                      <label class="form-label">Admin</label>
+                  </div>
 
-                    <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="text-danger">
-                        <small *ngIf="form.get('password')?.errors?.['required']">Password is required.</small>
-                        <small *ngIf="form.get('password')?.errors?.['minlength']">The password must be at least 6 characters.</small>
-                        <small *ngIf="form.get('password')?.errors?.['maxlength']">The password must not exceed 20 characters.</small>
-                    </div>
-                </div>
+                  <div *ngIf="form.get('role')?.invalid && form.get('role')?.touched" class="text-danger">
+                      <small>Role selection is required.</small>
+                  </div>
+              </div>
 
-                <div class="d-flex">
-                    <label class="form-label">Role:</label>
-                    <div class="form-check">
-                        <input 
-                        type="radio"
-                        id="user"
-                        formControlName="role" 
-                        value="user" 
-                        required
-                        >
-                        <label class="form-label">User:</label>
-                            
-                        <input 
-                        type="radio"
-                        id="admin"
-                        formControlName="role" 
-                        value="admin" 
-                        required
-                        >
-                        <label class="form-label">Admin</label>
-                    </div>
-                    
-                    <div *ngIf="form.get('role')?.invalid && form.get('role')?.touched" class="text-danger">
-                        <small>Role selection is required.</small>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create User</button>
-                    <button class="btn btn-danger" routerLink="../home">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div class="d-flex justify-content-between">
+                  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create User</button>
+                  <button class="btn btn-danger" routerLink="../home">Cancel</button>
+              </div>
+          </div>
+      </div>
+  </div>
 </form>

@@ -3,6 +3,9 @@
         <ng-container *ngIf="user">
             <button class="nav-link" (click)="goBack()"> ⭠ Back</button>
             <a class="nav-link" routerLink="home">Home</a>
+
+            <app-search-bar></app-search-bar>
+
             <button class="nav-link" routerLink="home/createProduct">New Product</button>
             <div *ngIf="isAdmin()">
               <button appShowForUser="admin" class="nav-link" routerLink="home/createUser">Create User</button>
@@ -13,5 +16,5 @@
             </div>
         </ng-container>
     </div>
-  </nav>
+</nav>
   

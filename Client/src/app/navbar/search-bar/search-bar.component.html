@@ -1,0 +1,16 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="searchInput"
+    (input)="onSearch()"
+    placeholder="Buscar usuario..."
+  />
+</div>
+<div *ngIf="products.length">
+  <h3>Resultados de búsqueda:</h3>
+  <ul>
+    <li *ngFor="let product of products">
+      
+    </li>
+  </ul>
+</div>

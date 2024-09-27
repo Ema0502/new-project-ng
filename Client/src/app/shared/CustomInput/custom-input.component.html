@@ -1,0 +1,11 @@
+<div>
+  <label>{{ label }}</label>
+  <input
+    [type]="type"
+    [value]="value"
+    (input)="onInput($event)"
+    class="formControlName"
+  />
+  <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+</div>
+
