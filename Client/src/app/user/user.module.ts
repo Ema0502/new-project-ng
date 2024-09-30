@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { userRoutes, UserRutesModule } from './user.routes';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateUserService } from './create-user/create-user.service';
+import { CustomInputModule } from '../shared/custom-input.module';
 
 
 
@@ -20,7 +21,8 @@ import { CreateUserService } from './create-user/create-user.service';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(userRoutes),
-    UserRutesModule
+    UserRutesModule,
+    CustomInputModule
   ],
   providers: [
     CreateUserService,

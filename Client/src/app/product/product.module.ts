@@ -11,6 +11,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { UpdateProductService } from './update-product/update-product.service';
 import { DetailProductService } from './detail-product/detail-product.service';
 import { CreateProductService } from './create-product/create-product.service';
+import { CustomInputModule } from '../shared/custom-input.module';
 
 
 
@@ -26,7 +27,8 @@ import { CreateProductService } from './create-product/create-product.service';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(productRoutes),
-    ProductRutesModule
+    ProductRutesModule,
+    CustomInputModule
   ],
   providers:[
     DetailProductService,

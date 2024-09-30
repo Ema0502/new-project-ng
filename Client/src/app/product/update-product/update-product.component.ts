@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { updateProductResp } from './update-product-response.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateProductService } from './update-product.service';
@@ -19,10 +19,10 @@ export class UpdateProductComponent implements OnInit {
 
   constructor( private updateProductService: UpdateProductService, private router: Router, private route: ActivatedRoute, private detailProductService: DetailProductService ) {
     this.form = new FormGroup({
-      name: new FormControl(''),
-      feature: new FormControl(''),
-      image: new FormControl(''),
-      price: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      feature: new FormControl('', [Validators.required]),
+      image: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required]),
       conditionProd: new FormControl(''),
     });
   }

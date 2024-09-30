@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CustomInputComponent),
+      useExisting: CustomInputComponent,
       multi: true
     },
   ],
@@ -16,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CustomInputComponent implements OnInit, ControlValueAccessor {
 
   value: string = "";
-  isDisabled!: boolean;
+  @Input() type: string = "text";
 
   constructor() { }
 
@@ -28,6 +28,7 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   onTouch = () => { };
 
   writeValue(value: string): void {
+    if (value) this.value = value;
   }
 
   registerOnChange(fn: any): void {
@@ -38,9 +39,7 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
+  setDisabledState(isDisabled: boolean): void { }
 
   onInput(event: Event): void {
     const input = event.target as HTMLInputElement;

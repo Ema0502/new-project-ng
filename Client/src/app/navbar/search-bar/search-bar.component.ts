@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SearchBarService } from './search-bar.service';
-import { ProductResponse } from '../../product/detail-product/product-response.model';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,19 +7,12 @@ import { ProductResponse } from '../../product/detail-product/product-response.m
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
-
-  searchInput: string = "";
-  products: ProductResponse[] = [];
+  searchInput: string = '';
 
   constructor(private searchBarService: SearchBarService) { }
-  onSearch() {
-    this.searchBarService.searchProducts(this.searchInput).subscribe(
-      (results: ProductResponse[]) => {
-        this.products = results;
-      },
-      (error) => {
-        console.error('Error searching users:', error);
-      }
-    );
+
+  onSearchChange(value: string): void {
+    this.searchInput = value;
+    this.searchBarService.changeSearchInput(this.searchInput);
   }
 }

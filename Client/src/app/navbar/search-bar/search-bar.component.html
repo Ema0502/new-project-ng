@@ -1,15 +1,6 @@
-<div>
-  <input
-    type="text"
-    [(ngModel)]="searchInput"
-    (input)="onSearch()"
-    placeholder="Search..."
-  />
-</div>
-<div *ngIf="products.length">
-  <ul>
-    <li *ngFor="let product of products">
-      
-    </li>
-  </ul>
+<div >
+  <input #searchInput 
+    (input)="onSearchChange(searchInput.value)" 
+    type="text" 
+    placeholder="Search Product...">
 </div>

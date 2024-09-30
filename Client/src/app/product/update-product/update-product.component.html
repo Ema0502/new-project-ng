@@ -1,80 +1,63 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card p-4 shadow-sm">
-                <h3 class="card-title text-center mb-4">Update Product</h3>
-                <h4 class="">Update only the fields you want to change.</h4>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card p-4">
+        <h3 class="card-title text-center mb-4">Update Product</h3>
+        <h4 class="">Update only the fields you want to change.</h4>
 
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
-                    <input 
-                      type="text"
-                      id="name" 
-                      class="form-control" 
-                      formControlName="name"
-                    >
-                
-                    <div class="mb-3">
-                        <label for="feature" class="form-label">Features:</label>
-                        <textarea 
-                          type="text" 
-                          id="feature" 
-                          class="form-control" 
-                          formControlName="feature"
-                        ></textarea>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Url Image:</label>
-                        <input 
-                          type="text" 
-                          id="image" 
-                          class="form-control" 
-                          formControlName="image"
-                        >
-                    </div>
-                </div>
-                    
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price:</label>
-                    <input 
-                      type="number"
-                      id="price" 
-                      class="form-control" 
-                      formControlName="price"
-                      placeholder="USD"
-                    >
-                </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <app-custom-input formControlName="name" />
 
-                <div class="mb-3">
-                    <label class="form-label">Condition Product:</label>
-                    <div class="form-check">
-                        <input 
-                          type="radio"
-                          id="new"
-                          value="new" 
-                          class="form-check-input" 
-                          formControlName="conditionProd"
-                        >
-                        <label class="form-check-label" for="conditionProd">New</label>
-                    </div>
-                    <div class="form-check">
-                        <input 
-                          type="radio"
-                          id="used"
-                          value="used" 
-                          class="form-check-input" 
-                          formControlName="conditionProd"
-                          >
-                        <label class="form-check-label" for="conditionProd">Used</label>
-                    </div>
-                </div>
+          <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-danger">
+            <small *ngIf="form.get('name')?.errors?.['required']">Name is required.</small>
+          </div>
 
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Update Product</button>
-                    <button class="btn btn-danger" routerLink="../home">Cancel</button>
-                </div>
+          <div class="mb-3">
+            <label for="feature" class="form-label">Features:</label>
+            <app-custom-input formControlName="feature" />
+
+            <div *ngIf="form.get('feature')?.touched && form.get('feature')?.invalid" class="text-danger">
+              <small *ngIf="form.get('feature')?.errors?.['required']">Features is required.</small>
             </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Url Image:</label>
+            <app-custom-input formControlName="image" />
+
+            <div *ngIf="form.get('image')?.touched && form.get('image')?.invalid" class="text-danger">
+              <small *ngIf="form.get('image')?.errors?.['required']">Image is required.</small>
+            </div>
+          </div>
         </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <app-custom-input type="number" formControlName="price" />
+
+          <div *ngIf="form.get('price')?.touched && form.get('price')?.invalid" class="text-danger">
+            <small *ngIf="form.get('price')?.errors?.['required']">Price is required.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Condition Product:</label>
+          <div class="form-check">
+            <input type="radio" id="new" value="new" class="form-check-input" formControlName="conditionProd">
+            <label class="form-check-label" for="conditionProd">New</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" id="used" value="used" class="form-check-input" formControlName="conditionProd">
+            <label class="form-check-label" for="conditionProd">Used</label>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Update Product</button>
+          <button class="btn btn-danger" routerLink="../home">Cancel</button>
+        </div>
+      </div>
     </div>
+  </div>
 </form>

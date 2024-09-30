@@ -13,13 +13,11 @@ import { UserModule } from '../user/user.module';
 import { ProductModule } from '../product/product.module';
 import { UserRutesModule } from '../user/user.routes';
 import { ProductRutesModule } from '../product/product.routes';
-import { CustomInputComponent } from '../shared/custom-input.component';
 
 @NgModule({
   declarations: [
     CardsComponent,
-    CardComponent,
-    CustomInputComponent
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +35,8 @@ import { CustomInputComponent } from '../shared/custom-input.component';
     CardsService
   ],
   exports: [
-    CustomInputComponent
+    CardsComponent,
+    CardComponent
   ]
 })
 export class HomeModule { }

@@ -1,10 +1,11 @@
-<div class="d-flex justify-content-center mt-5">
+<div class="d-flex justify-content-center">
   <div class="form-check">
     <input 
-      [value]="value"
-      (input)="onInput($event)"
-      class="formControlName" 
-      [disabled]="isDisabled"
+    [type]="type"
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onTouch()"
+    class="form-control" 
     />
   </div>
 </div>
