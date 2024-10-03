@@ -11,12 +11,15 @@ import { AuthResponse } from './auth-response.model';
 })
 export class AuthComponent {
   public form: FormGroup;
+  public initialAccess: string | null;
 
   constructor(private authService: AuthService, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required,  Validators.minLength(6), Validators.maxLength(20)])
     });
+    this.initialAccess = localStorage.getItem("user");
+    if (this.initialAccess) this.router.navigate(["/home"]);
   }
 
   onSubmit() {

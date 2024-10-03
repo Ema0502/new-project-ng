@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
-export class CreateUserComponent {
+export class CreateUserComponent implements OnInit {
   public form: FormGroup;
   constructor(private router: Router, private createUserService: CreateUserService, private authService: AuthService) {
     this.form = new FormGroup({
@@ -23,6 +23,10 @@ export class CreateUserComponent {
       password: new FormControl('', [Validators.required,  Validators.minLength(6), Validators.maxLength(20)]),
       role: new FormControl('', [Validators.required]),
     });
+  }
+
+  ngOnInit(): void {
+    
   }
 
   onSubmit = () => {
