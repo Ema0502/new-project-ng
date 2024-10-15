@@ -11,6 +11,6 @@ export class UpdateProductService {
   constructor(private http: HttpClient) { }
 
   updateProduct = (updateProduct: updateProductResp): Observable<updateProductResp> => {
-    return this.http.put<updateProductResp>(`http://localhost:3000/products/${updateProduct.id}`, updateProduct);
+    return this.http.put<updateProductResp>(`https://localhost:7026/api/Products/${updateProduct.id}`, updateProduct);
   }
 }

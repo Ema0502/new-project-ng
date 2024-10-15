@@ -10,10 +10,10 @@ export class CardsService {
 
   constructor( private http: HttpClient) { }
   getProductsApi = () => {
-    return this.http.get("http://localhost:3000/products");
+    return this.http.get("https://localhost:7026/api/Products");
   }
 
   getProductsByNameApi(name: string): Observable<ProductResponse[]> {
-    return this.http.get<ProductResponse[]>(`http://localhost:3000/search?name=${name}`);
+    return this.http.get<ProductResponse[]>(`https://localhost:7026/api/Products/search?name=${name}`);
   }
 }

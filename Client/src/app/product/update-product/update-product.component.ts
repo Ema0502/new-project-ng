@@ -14,7 +14,7 @@ import { ProductResponse } from '../detail-product/product-response.model';
 export class UpdateProductComponent implements OnInit {
 
   public form: FormGroup;
-  public id!: number;
+  public id!: string;
   public product!: ProductResponse;
 
   constructor( private updateProductService: UpdateProductService, private router: Router, private route: ActivatedRoute, private detailProductService: DetailProductService ) {
@@ -28,7 +28,7 @@ export class UpdateProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = Number(this.route.snapshot.params['id']);
+    this.id = this.route.snapshot.params['id'];
     this.loadDataProduct();
   }
 
@@ -48,10 +48,11 @@ export class UpdateProductComponent implements OnInit {
   }
 
   onSubmit = () => {
-    if (this.form.valid) {
+    const userId = localStorage.getItem("user");
+    if (this.form.valid && userId) {
       const { name, feature, image, price, conditionProd } = this.form.value;
       const publicationDate = new Date();
-      const updateProduct = { id: this.id, name, feature, image, price, conditionProd, publicationDate };
+      const updateProduct = { id: this.id, name, feature, image, price, conditionProd, publicationDate, userId };
       this.updateProductService.updateProduct(updateProduct).subscribe((response: updateProductResp) => {
         this.router.navigate(["/home"]);
       })

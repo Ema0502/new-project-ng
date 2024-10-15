@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   signup = (email: string, password: string): Observable<AuthResponse> => {
-    return this.http.post<AuthResponse>("http://localhost:3000/login", { email, password });
+    return this.http.post<AuthResponse>("https://localhost:7026/api/Users/login", { email, password });
   }
   setUserLogged = (value: boolean) => {
     this.userLogged.next(value);

@@ -11,14 +11,17 @@ export class CreateProductService {
   constructor(private http: HttpClient) { }
 
   createProduct = (name: string, feature: string, publicationDate: Date, image: string, price: number, conditionProd: string): Observable<createProductResp> => {
+    const userId = localStorage.getItem("userId");
     const product = {
       name,
       feature,
       publicationDate,
       image,
       price,
-      conditionProd
+      conditionProd,
+      userId
     }
-    return this.http.post<createProductResp>("http://localhost:3000/createProduct", product);
+    console.log(product);
+    return this.http.post<createProductResp>("https://localhost:7026/api/Products", product);
   }
 }

@@ -1,9 +1,10 @@
 export interface updateProductResp {
-    id: number;
+    id: string;
     name: string;
     feature: string;
     publicationDate: Date;
     image: string;
     price: number;
     conditionProd: string;
+    userId: string;
   }

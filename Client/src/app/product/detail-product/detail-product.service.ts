@@ -10,11 +10,11 @@ export class DetailProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProductById = (id: number): Observable<ProductResponse> => {
-    return this.http.get<ProductResponse>(`http://localhost:3000/products/${id}`);
+  getProductById = (id: string): Observable<ProductResponse> => {
+    return this.http.get<ProductResponse>(`https://localhost:7026/api/Products/${id}`);
   }
 
-  deleteProduct = (id: number): Observable<ProductResponse> => {
-    return this.http.delete<ProductResponse>(`http://localhost:3000/products/${id}`);
+  deleteProduct = (id: string): Observable<ProductResponse> => {
+    return this.http.delete<ProductResponse>(`https://localhost:7026/api/Products/${id}`);
   }
 }

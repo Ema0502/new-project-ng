@@ -20,7 +20,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   getProductDetails(): void {
-    this.detailProductService.getProductById(Number(this.id)).subscribe({
+    this.detailProductService.getProductById(String(this.id)).subscribe({
       next: (response: ProductResponse) => {
         this.product = response;
       },
@@ -31,7 +31,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   deleteProduct(): void {
-    this.detailProductService.deleteProduct(Number(this.id)).subscribe({
+    this.detailProductService.deleteProduct(String(this.id)).subscribe({
       next: (response: ProductResponse) => {
         this.product = response;
       },

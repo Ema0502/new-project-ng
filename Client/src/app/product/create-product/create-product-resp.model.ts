@@ -5,4 +5,5 @@ export interface createProductResp {
     image: string;
     price: number;
     conditionProd: string;
+    userId: string;
   }

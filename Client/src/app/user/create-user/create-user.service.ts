@@ -21,6 +21,6 @@ export class CreateUserService {
       role
     }
     console.log(user)
-    return this.http.post<createResponse>("http://localhost:3000/createUser", user);
+    return this.http.post<createResponse>("https://localhost:7026/api/Users", user);
   }
 }

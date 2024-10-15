@@ -28,6 +28,7 @@ export class AuthComponent {
       this.authService.signup(email, password).subscribe((response: AuthResponse) => {
         if (response.access) {
           localStorage.setItem("user", JSON.stringify(response));
+          localStorage.setItem("userId", response.id);
           this.authService.setUserLogged(true);
           this.router.navigate(["/home"]);
         }
