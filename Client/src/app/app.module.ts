@@ -18,6 +18,7 @@ import { UserRutesModule } from './user/user.routes';
 import { ProductRutesModule } from './product/product.routes';
 import { SearchBarComponent } from './navbar/search-bar/search-bar.component';
 import { SearchBarService } from './navbar/search-bar/search-bar.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SearchBarService } from './navbar/search-bar/search-bar.service';
   ],
   providers: [
     AuthService,
-    SearchBarService
+    SearchBarService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
