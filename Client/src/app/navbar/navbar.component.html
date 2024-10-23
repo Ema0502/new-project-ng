@@ -1,19 +1,20 @@
 <nav class="navbar navbar-expand-lg bg-light">
-    <a class="nav-link" routerLink="../"> ⭠ Back</a>
     <div class="collapse navbar-collapse justify-content-evenly">
-        <a class="nav-link" routerLink="home">Home</a>
-        <input id="search" name="search" type="search">
-    
-        <ng-container *ngIf="user; else loginLink">
+        <ng-container *ngIf="user">
+            <button class="nav-link" (click)="goBack()"> ⭠ Back</button>
+            <a class="nav-link" routerLink="home">Home</a>
+
+            <app-search-bar></app-search-bar>
+
+            <button class="nav-link" routerLink="home/createProduct">New Product</button>
+            <div *ngIf="isAdmin()">
+              <button appShowForUser="admin" class="nav-link" routerLink="home/createUser">Create User</button>
+            </div>
             <div class="d-flex align-items-center">
               <span class="nav-link">Welcome, {{ user.email }}</span>
-              <a class="nav-link ms-2" (click)="logOut()">Log Out</a>
+              <button class="nav-link ms-3" (click)="logOut()">Log Out</button>
             </div>
         </ng-container>
-
-        <ng-template #loginLink>
-            <a class="nav-link" routerLink="login">Login</a>
-        </ng-template>
     </div>
-  </nav>
+</nav>
   

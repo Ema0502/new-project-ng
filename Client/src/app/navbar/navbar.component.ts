@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { navBarUser } from './navbar-user.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +11,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   user: navBarUser | null = null;
-  constructor (private router: Router) {
-  }
+  
+  constructor(private router: Router, private authService: AuthService, private location: Location) { }
+
   ngOnInit(): void {
     this.user = this.getUserLogin();
+    this.authService.userLogged$.subscribe(isLogged => {
+      if (isLogged) {
+        this.user = this.getUserLogin();
+      } else {
+        this.user = null;
+      }
+    });
   }
 
   getUserLogin(): navBarUser | null {
@@ -21,16 +31,23 @@ export class NavbarComponent implements OnInit {
       try {
         return JSON.parse(userJson) as navBarUser;
       } catch (error) {
-        console.error('Error parsing user from localStorage', error);
+        console.error(error);
         return null;
       }
     }
     return null;
   }
 
+  isAdmin(): boolean {
+    return this.user?.role === 'admin';
+  }
+
   logOut(): void {
     localStorage.removeItem("user");
-    this.user = null;
-    this.router.navigate(['/home']);
+    this.authService.setUserLogged(false);
+    this.router.navigate(["/"]);
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

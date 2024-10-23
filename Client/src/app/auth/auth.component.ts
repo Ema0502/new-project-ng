@@ -11,23 +11,27 @@ import { AuthResponse } from './auth-response.model';
 })
 export class AuthComponent {
   public form: FormGroup;
+  public initialAccess: string | null;
 
   constructor(private authService: AuthService, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required,  Validators.minLength(6), Validators.maxLength(20)])
     });
+    this.initialAccess = localStorage.getItem("user");
+    if (this.initialAccess) this.router.navigate(["/home"]);
   }
 
   onSubmit() {
     if (this.form.valid) {
-    const { email, password } = this.form.value;
-    this.authService.signup(email, password).subscribe((response: AuthResponse) => {
-      if (response.access) {
-        localStorage.setItem("user", JSON.stringify(response));
-        this.router.navigate(['/home']);
-      }
-      return;
+      const { email, password } = this.form.value;
+      this.authService.signup(email, password).subscribe((response: AuthResponse) => {
+        if (response.access) {
+          localStorage.setItem("user", JSON.stringify(response));
+          localStorage.setItem("userId", response.id);
+          this.authService.setUserLogged(true);
+          this.router.navigate(["/home"]);
+        }
       },
       (error) => {
         console.error('Signup failed', error);

@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center">
+  <div class="form-check">
+    <input 
+    [type]="type"
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onTouch()"
+    class="form-control" 
+    />
+  </div>
+
+  <!-- <div *ngIf="form.controls[type]?.touched && form.controls[type]?.invalid" class="text-danger">
+    <small *ngIf="form.controls[type]?.errors?.['required']">{{ type }} is required.</small>
+  </div> -->
+</div>
